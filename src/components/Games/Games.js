@@ -7,7 +7,7 @@ const Games = () => {
 
     return (
         <div className="games-container">
-            <h2 className="games-title">Our games:</h2>
+            <h2 className="games-title">All games:</h2>
             <div>
             {games.map(game => (
                 <div className="game-container" key={game.id}>

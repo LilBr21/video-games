@@ -1,6 +1,18 @@
+@import'../../variables/variables.scss';
+
 .games-container {
     color: rgb(252, 255, 242);
     background-color: rgb(29, 29, 29);
+    display: grid;
+}
+
+.games-title {
+    font-family: $titleFont;
+    font-size: 35px;
+}
+
+.game-container {
+    background-color: rgba(248, 248, 248, 0.2);
 }
 
 .game-img {
