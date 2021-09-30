@@ -1,9 +1,21 @@
 @import'../../variables/variables.scss';
 
-.games-container {
-    color: rgb(252, 255, 242);
+.game-part-container {
+    color: $textMainColor;
     background-color: rgb(29, 29, 29);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.games-container {
     display: grid;
+    width: 100%;
+    grid-template-columns: 47% 47%;
+    column-gap: 6%;
+    justify-items: center;
 }
 
 .games-title {
@@ -12,10 +24,35 @@
 }
 
 .game-container {
-    background-color: rgba(248, 248, 248, 0.2);
+    background-color: rgba(46, 45, 45, 0.6);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6.5px );
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-name {
+    padding-top: 1rem;
+}
+
+.more-btn {
+    height: 4vw;
+    width: 9vw;
+    margin: 0.75rem;
+    background: rgb(22,40,164);
+    background: linear-gradient(128deg, rgba(22,40,164,0.9068452380952381) 30%, rgba(18,12,57,1) 79%);
+    border: none;
+    color: $textMainColor;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .game-img {
-    height: 25vh;
-    width: 35vh;
+    height: 45vh;
+    width: 100%
 }
