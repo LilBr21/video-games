@@ -1,7 +1,15 @@
 @import'../../variables/variables.scss';
 
+.game-part-container, .more-btn, .games-title {
+    font-family: $mainTextFont;
+}
+
+.games-title, .more-btn {
+    color: $MainLightColor;
+}
+
 .game-part-container {
-    color: $textMainColor;
+    color: $MainDarkColor;
     background-color: rgb(29, 29, 29);
     width: 100%;
     display: flex;
@@ -12,24 +20,22 @@
 
 .games-container {
     display: grid;
-    width: 100%;
-    grid-template-columns: 47% 47%;
-    column-gap: 6%;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
     justify-items: center;
 }
 
 .games-title {
-    font-family: $titleFont;
-    font-size: 35px;
+    font-size: 36px;
 }
 
 .game-container {
-    background-color: rgba(46, 45, 45, 0.6);
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 6.5px );
-    border-radius: 10px;
-    width: 90%;
-    height: 90%;
+    background-color: #E9ECEF;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 130px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -37,22 +43,22 @@
 }
 
 .game-name {
-    padding-top: 1rem;
+    padding-top: 0.6rem;
+    font-size: 25px;
 }
 
 .more-btn {
-    height: 4vw;
-    width: 9vw;
+    height: 50px;
+    width: 215px;
     margin: 0.75rem;
-    background: rgb(22,40,164);
-    background: linear-gradient(128deg, rgba(22,40,164,0.9068452380952381) 30%, rgba(18,12,57,1) 79%);
+    background: #9E2A2B;
     border: none;
-    color: $textMainColor;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 36px;
 }
 
 .game-img {
-    height: 45vh;
+    height: 180px;
     width: 100%
 }
