@@ -1,0 +1,45 @@
+@import'../../variables/variables.scss';
+
+.header {
+    background-color: $MainDarkColor;
+    height: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-title {
+    font-family: $titleFont;
+    font-size: 72px;
+    color: $MainLightColor;
+    margin-left: 4rem;
+}
+
+.header-right-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    position: relative
+}
+
+.search-img {
+    position: absolute;
+    margin: 1rem 0 0 2rem;
+}
+
+.input {
+    width: 330px;
+    height: 55px;
+    border-radius: 50px;
+    margin: 0 1rem 0 1rem;
+    border: none;
+}
+
+.cart-img {
+    margin: 0 1rem 0 1rem;
+}
