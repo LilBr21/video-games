@@ -6,3 +6,16 @@ $mainTextFont: Staatliches, san-serif;
 
 $MainLightColor: #F8F9FA;
 $MainDarkColor: #212529;
+$LighterDarkColor: #343A40;
+
+@mixin main-button ($height, $width, $font-size) {
+    background-color: #9E2A2B;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: $MainLightColor;
+    font-family: $mainTextFont;
+    font-size: $font-size;
+    height: $height;
+    width: $width;
+}
