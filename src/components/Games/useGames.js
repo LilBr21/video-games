@@ -1,21 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useGames = () => {
-  // const [howManyGames, setHowManyGames] = useState(20);
-
-  // const loadMoreGamesHandler = () => {
-  //   setHowManyGames(howManyGames + 20);
-  //   console.log(howManyGames);
-    // fetchGames();
- // }
-
-   // useEffect(() => {
-       // fetchGames()
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-     // },[])
-    
-     // const [games, setGames] = useState([])
-      
+const useGames = () => {      
       /*const queryBuilder=()=>{
         useSelctor()
         let query = '`https://api.rawg.io/api/games?' 
@@ -42,26 +27,44 @@ const useGames = () => {
 
       const [games, setGames] = useState([]);
       const [loading, setLoading] = useState(false);
+      const [currentPage, setCurrentPage] = useState(1);
+      //const [gamesPerPage, setGamesPerPage] = useState(20);
   
     useEffect(() => {
       fetchGames();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
   const fetchGames = () => {
     setLoading(true);
     fetch(
-      `https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5&page_size=20`
+      `https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5&page=${currentPage}`
     )
       .then((resp) => resp.json())
       .then(({ results }) => {
       setGames(results);
+      console.log(games);
       setLoading(false);
       });
   };
+
+  const goToNextPageHandler = () => {
+    setCurrentPage(currentPage + 1);
+    fetchGames();
+  }
+
+  const goToPreviousPageHandler = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+    fetchGames();
+  }
     
       return {
           games,
-          loading
+          loading,
+          goToNextPageHandler,
+          goToPreviousPageHandler
       }
 }
 

@@ -1,10 +1,11 @@
 import Header from '../Header/Header';
+//import Pagination from '../Pagination/Pagination';
 import useGames from './useGames';
 
 import './games.styles.css';
 
 const Games = () => {
-    const {games, loading} = useGames();
+    const {games, loading, goToNextPageHandler, goToPreviousPageHandler} = useGames();
 
     return (
         <div>
@@ -32,7 +33,8 @@ const Games = () => {
                 </div>
                 }
                 <div>
-                    <button>Load more</button>
+                    <button className="next-btn" onClick={goToPreviousPageHandler}>BACK</button>
+                    <button className="prev-btn" onClick={goToNextPageHandler}>NEXT</button>
                 </div>
             </div>
         </div>
@@ -41,3 +43,5 @@ const Games = () => {
 
 
 export default Games;
+
+//<Pagination gamesPerPage={gamesPerPage} totalGames={totalGames}/>

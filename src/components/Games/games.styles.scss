@@ -62,11 +62,11 @@
     width: 100%
 }
 
-.load-btn {
+.next-btn, .prev-btn {
     @include main-button(40px, 120px, 20px);
-    margin-bottom: 3rem;
+    margin: 0 2rem 3rem 2rem;
 }
 
-.more-btn:hover, .load-btn:hover {
+.more-btn:hover, .next-btn:hover, .prev-btn:hover {
     background-color: $hoverBtnColor;
 }
