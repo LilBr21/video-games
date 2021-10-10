@@ -4,7 +4,7 @@ import useGames from './useGames';
 import './games.styles.css';
 
 const Games = () => {
-    const {games ,loadMoreGamesHandler} = useGames();
+    const {games, loading} = useGames();
 
     return (
         <div>
@@ -13,6 +13,9 @@ const Games = () => {
                 <div>
                     <h2 className="games-title">All games:</h2>
                 </div>
+                {loading ?  
+                    <p className="loading">Loading...</p>
+                :
                 <div className="games-container">
                 {games.map(game => (
                     <div className="game-container" key={game.id}>
@@ -27,8 +30,9 @@ const Games = () => {
                     </div>
                 ))}
                 </div>
+                }
                 <div>
-                    <button onClick={loadMoreGamesHandler}>Load more</button>
+                    <button>Load more</button>
                 </div>
             </div>
         </div>

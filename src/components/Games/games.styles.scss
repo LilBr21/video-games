@@ -31,6 +31,11 @@
     font-size: 48px;
 }
 
+.loading {
+    color: $MainLightColor;
+    font-size: 30px;
+}
+
 .game-container {
     background-color: #E9ECEF;
     width: 300px;
@@ -48,17 +53,20 @@
 }
 
 .more-btn {
-    height: 50px;
-    width: 215px;
-    margin: 0.75rem;
-    background: #9E2A2B;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 36px;
+    @include main-button(50px, 215px, 36px);
+    margin-top: 0.75rem;
 }
 
 .game-img {
     height: 180px;
     width: 100%
+}
+
+.load-btn {
+    @include main-button(40px, 120px, 20px);
+    margin-bottom: 3rem;
+}
+
+.more-btn:hover, .load-btn:hover {
+    background-color: $hoverBtnColor;
 }
