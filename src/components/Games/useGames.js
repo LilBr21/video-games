@@ -38,27 +38,29 @@ const useGames = () => {
   const fetchGames = () => {
     setLoading(true);
     fetch(
-      `https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5&page=${currentPage}`
+      `https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5&page=${currentPage}&page_size=21`
     )
       .then((resp) => resp.json())
       .then(({ results }) => {
       setGames(results);
-      console.log(games);
       setLoading(false);
       });
   };
 
   const goToNextPageHandler = () => {
     setCurrentPage(currentPage + 1);
-    fetchGames();
   }
 
   const goToPreviousPageHandler = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
-    fetchGames();
   }
+
+  useEffect(() => {
+    fetchGames()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage])
     
       return {
           games,
