@@ -1,5 +1,4 @@
 import Header from '../Header/Header';
-//import Pagination from '../Pagination/Pagination';
 import useGames from './useGames';
 
 import './games.styles.css';
@@ -43,5 +42,3 @@ const Games = () => {
 
 
 export default Games;
-
-//<Pagination gamesPerPage={gamesPerPage} totalGames={totalGames}/>

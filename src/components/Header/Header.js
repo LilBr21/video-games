@@ -1,4 +1,5 @@
-import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
+//import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
+import MenuContent from './HamburgerMenu/MenuContent';
 import './header.styles.css';
 
 import { Link } from 'react-router-dom';
@@ -15,7 +16,7 @@ const Header = () => {
                     <input type="search" className="input"></input>
                 </div>
                 <img className="cart-img" src='/assets/cart.svg' alt="cart" />
-                <HamburgerMenu />
+                <MenuContent />
             </div>
         </div>
     )
