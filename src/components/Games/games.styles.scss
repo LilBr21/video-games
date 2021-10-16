@@ -1,6 +1,6 @@
 @import'../../variables/variables.scss';
 
-.game-part-container, .more-btn, .games-title {
+.game-part-container, .games-title {
     font-family: $mainTextFont;
 }
 
@@ -18,15 +18,6 @@
     align-items: center;
 }
 
-.games-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 150px;
-    margin-left: 150px;
-    margin-right: 150px;
-    justify-items: center;
-}
-
 .games-title {
     font-size: 48px;
 }
@@ -36,37 +27,11 @@
     font-size: 30px;
 }
 
-.game-container {
-    background-color: #E9ECEF;
-    width: 300px;
-    height: 400px;
-    margin-bottom: 130px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.game-name {
-    padding-top: 0.6rem;
-    font-size: 25px;
-}
-
-.more-btn {
-    @include main-button(50px, 215px, 36px);
-    margin-top: 0.75rem;
-}
-
-.game-img {
-    height: 180px;
-    width: 100%
-}
-
 .next-btn, .prev-btn {
     @include main-button(40px, 120px, 20px);
     margin: 0 2rem 3rem 2rem;
 }
 
-.more-btn:hover, .next-btn:hover, .prev-btn:hover {
+.next-btn:hover, .prev-btn:hover {
     background-color: $hoverBtnColor;
 }

@@ -1,70 +1,76 @@
-import { useState, useEffect } from 'react';
+import {useEffect,useState} from "react"
+import { useSelector, useDispatch } from 'react-redux';
+import { gamesActions } from '../../store/index';
+//import {useFetch} from "../useFetch";
 
 const useGames = () => {      
-      /*const queryBuilder=()=>{
-        useSelctor()
-        let query = '`https://api.rawg.io/api/games?' 
-        if(startDate)){
-          query+='dates=2019-01-01'
+      const dispatch = useDispatch();
+      const currentPage = useSelector(state => state.currentPage);
+      const searchPhrase = useSelector(state => state.searchPhrase);
+
+      //const {fetchedData, isLoading,fetchGames}=useFetch()
+
+      const [fetchedData, setFetchedData] = useState([])
+    /*
+    cały stan z reduxa - parametry zapytania
+    na podstawie parametrów -> budować zapytanie
+    API -> dane
+    dane -> component
+    */
+
+    const state = useSelector(state => state)
+
+    const [isLoading, setLoading] = useState(false);
+
+    const queryBuilder=()=>{
+        console.log("query builder", state);
+        let baseUrl=`https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5`;
+        if (currentPage && searchPhrase) {
+          baseUrl+=`&search=${searchPhrase}`
         }
-        return query;
-      }*/
+        if(currentPage){
+          baseUrl+=`&page=${currentPage}`
+        }
+        if(searchPhrase){
+          baseUrl+=`&search=${searchPhrase}`
+        }
 
-     // const fetchGames = () => {
-        //fetch('https://rawg.io/api/collections/must-play/games?key=2989b3e6293c4ef68887b2acde1f6efa')
-        // from env file ${REACT_APP_YOUR}
-       // fetch(`https://api.rawg.io/api/games?key=9e40a65de4664feeba30438a2ac8cd47&page_size=${howManyGames}`)
-       // .then(resp => resp.json())
-       // .then(({results}) => setGames(results))
-        // .catch((err)=>{
-        //   //alert()
-        // }
-     // }
+        console.log("url for fetching", baseUrl)
 
-      // in proges
-      // review
-      // done
 
-      const [games, setGames] = useState([]);
-      const [loading, setLoading] = useState(false);
-      const [currentPage, setCurrentPage] = useState(1);
-      //const [gamesPerPage, setGamesPerPage] = useState(20);
-  
-    useEffect(() => {
-      fetchGames();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        return baseUrl;
+    }
 
-  const fetchGames = () => {
+    const fetchGames = () => {
     setLoading(true);
-    fetch(
-      `https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5&page=${currentPage}&page_size=21`
-    )
+    fetch(queryBuilder())
       .then((resp) => resp.json())
       .then(({ results }) => {
-      setGames(results);
+      setFetchedData(results);
       setLoading(false);
+      }).catch((err)=>{
+          alert("Something went wrong")
       });
   };
 
+      useEffect(() => {
+        fetchGames();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [state])
+  
   const goToNextPageHandler = () => {
-    setCurrentPage(currentPage + 1);
+    dispatch(gamesActions.nextPage());
   }
 
   const goToPreviousPageHandler = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      dispatch(gamesActions.prevPage());
     }
   }
-
-  useEffect(() => {
-    fetchGames()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage])
     
       return {
-          games,
-          loading,
+          fetchedData,
+          isLoading,
           goToNextPageHandler,
           goToPreviousPageHandler
       }

@@ -1,0 +1,32 @@
+@import'../../../variables/variables.scss';
+
+.input-container {
+    position: relative
+}
+
+.search-img {
+    position: absolute;
+    margin: 1rem 0 0 2rem;
+}
+
+.input {
+    width: 330px;
+    height: 55px;
+    font-size: 18px;
+    border-radius: 50px;
+    margin: 0 1rem 0 1rem;
+    padding-left: 45px;
+    border: none;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.search-btn {
+    @include main-button(40px, 80px, 25px);
+}
+
+.search-btn:hover {
+    background-color: $hoverBtnColor;
+}

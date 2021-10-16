@@ -1,0 +1,40 @@
+@import'../../variables/variables.scss';
+
+.games-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
+    justify-items: center;
+}
+
+.game-container {
+    background-color: #E9ECEF;
+    width: 300px;
+    height: 400px;
+    margin-bottom: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-img {
+    height: 180px;
+    width: 100%;
+}
+
+.game-name {
+    padding-top: 0.6rem;
+    font-size: 25px;
+}
+
+.more-btn {
+    @include main-button(50px, 215px, 36px);
+    margin-top: 0.75rem;
+}
+
+.more-btn:hover {
+    background-color: $hoverBtnColor;
+}
