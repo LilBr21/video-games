@@ -22,9 +22,12 @@ const useGames = () => {
 
     const [isLoading, setLoading] = useState(false);
 
+    const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
+
     const queryBuilder=()=>{
+        console.log(API_KEY);
         console.log("query builder", state);
-        let baseUrl=`https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5`;
+        let baseUrl=`https://api.rawg.io/api/games?key=${API_KEY}`;
         if (currentPage && searchPhrase) {
           baseUrl+=`&search=${searchPhrase}`
         }
