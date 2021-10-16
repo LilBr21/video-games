@@ -25,3 +25,7 @@
 .cart-img {
     margin: 0 1rem 0 1rem;
 }
+
+.homepage-link {
+    @include link;
+}

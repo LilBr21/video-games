@@ -20,3 +20,8 @@ $hoverBtnColor: #812123;
     height: $height;
     width: $width;
 }
+
+@mixin link {
+    text-decoration: none;
+    color: $MainLightColor;
+}

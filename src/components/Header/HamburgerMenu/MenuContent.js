@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import HamburgerMenu from './HamburgerMenu';
 
@@ -24,7 +25,9 @@ const MenuContent = () => {
                     <li className="console">Nintendo Switch</li>
                 </ul>
                 <h3 className="menu-title">Rankings</h3>
-                <h3 className="menu-title">See all</h3>
+                <Link to='/allgames' className="router-link">
+                    <h3 className="menu-title">See all</h3>
+                </Link>
         </div>
         </div>
     )
