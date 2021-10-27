@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 const useMoreInfo = () => {
     const [fetchedExtension, setFetchedExtension] = useState([]);
+    const [fetchedScreenshots, setFetchedScreenshots] = useState([]);
     const moreInfoId = useSelector(state => state.moreInfoId);
     const [chosenId, setChosenId] = useState(moreInfoId);
 
@@ -15,34 +16,43 @@ const useMoreInfo = () => {
     console.log(moreInfoId);
     //const state = useSelector(state => state);
 
-    let fetcher = `https://api.rawg.io/api/games/${chosenId}?key=${API_KEY}`;
+    let infoFetcher = `https://api.rawg.io/api/games/${chosenId}?key=${API_KEY}`;
+    let screenshotsFetcher = `https://api.rawg.io/api/games/${chosenId}/screenshots?key=${API_KEY}`;
 
     //`https://api.rawg.io/api/games?key=${API_KEY}&id=${chosenId}`
 
     const fetchGameInfo = () => {
-        fetch(fetcher)
+        fetch(infoFetcher)
           .then((resp) => resp.json())
           .then(( results ) => {
           setFetchedExtension(results);
           console.log(results);
-          console.log(fetcher);
           }).catch((err)=>{
               alert("Something went wrong")
           });
-        };
+    };
+
+    const fetchScreenshots = () => {
+      fetch(screenshotsFetcher)
+        .then((resp) => resp.json())
+        .then(({ results }) => {
+        setFetchedScreenshots(results);
+        console.log(results);
+        //console.log(results);
+        }).catch((err)=>{
+            alert("Something went wrong")
+        });
+    };
 
         useEffect(() => {
             fetchGameInfo();
+            fetchScreenshots();
           // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [chosenId])
 
-        useEffect(() => {
-            console.log(fetchedExtension);
-          // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [fetchedExtension])
-
         return {
-            ...fetchedExtension
+            ...fetchedExtension,
+            fetchedScreenshots
         }
       
 }

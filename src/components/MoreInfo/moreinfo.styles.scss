@@ -1,0 +1,74 @@
+@import'../../variables/variables.scss';
+
+.extended-container {
+    background-color: $LighterDarkColor;
+    color: $MainLightColor;
+    margin-top: 0;
+    padding-bottom: 2rem;
+}
+
+.top-container {
+    display: flex;
+
+}
+
+.game-name-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 86%;
+}
+
+.add-btn-container {
+    width: 14%;
+}
+
+.add-btn {
+    @include main-button(40px, 120px, 20px);
+    margin-top: 1rem;
+}
+
+.add-btn:hover {
+    background-color: $hoverBtnColor;
+}
+
+.game-name {
+    margin: 0;
+    padding: 1rem;
+    font-family: $mainTextFont;
+    font-size: 37px;
+}
+
+.game-pic, .game-screenshots {
+    height: 300px;
+    width: 420px;
+}
+
+.game-pic {
+    float: left;
+    padding: 1.5rem 2.5rem 1.5rem 4.5rem;
+}
+
+.game-description, .game-platform {
+    font-family: sans-serif;
+    font-size: 25px;
+    text-align: justify;
+    padding: 0 4.5rem 0 4.5rem;
+}
+
+.game-data {
+    color: $redColor;
+    font-weight: 600;
+    padding-left: 0.5rem;
+}
+
+.game-platform {
+    font-size: 20px;
+    color: $redColor;
+    font-weight: 550;
+}
+
+.game-screenshots {
+    margin: 1.5rem;
+}
