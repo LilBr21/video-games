@@ -3,7 +3,8 @@ import { createSlice, configureStore} from '@reduxjs/toolkit';
 const initialState = {
     currentPage: 1,
     loading: false,
-    searchPhrase: ""
+    searchPhrase: "",
+    moreInfoId: 0
 };
 
 const gamesSlice = createSlice({
@@ -21,6 +22,10 @@ const gamesSlice = createSlice({
         },
         resetSearch(state) {
             state.searchPhrase = "";
+        },
+        getMoreInfo(state, action) {
+            state.moreInfoId = action.payload;
+            console.log(state.moreInfoId);
         }
     }
 })

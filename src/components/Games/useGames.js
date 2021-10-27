@@ -11,12 +11,6 @@ const useGames = () => {
       //const {fetchedData, isLoading,fetchGames}=useFetch()
 
       const [fetchedData, setFetchedData] = useState([])
-    /*
-    cały stan z reduxa - parametry zapytania
-    na podstawie parametrów -> budować zapytanie
-    API -> dane
-    dane -> component
-    */
 
     const state = useSelector(state => state)
 
