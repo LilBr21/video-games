@@ -1,7 +1,7 @@
 import {  useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { gamesActions } from '../../store/index';
-import './gamecard.styles.css';
+import { gamesActions } from '../../store/games';
+import './gamecard.styles.scss';
 
 const GameCard = ({
         id,
@@ -20,7 +20,6 @@ const GameCard = ({
     const showMoreHandler = () => {
     dispatch(gamesActions.getMoreInfo(id));
     
-    console.log(id);
     history.push('/moreinfo');
     }
     return (

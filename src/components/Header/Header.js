@@ -1,7 +1,7 @@
 //import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import MenuContent from './HamburgerMenu/MenuContent';
 import Search from './Search/Search';
-import './header.styles.css';
+import './header.styles.scss';
 
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,9 @@ const Header = () => {
             </Link>
             <div className="header-right-side">
                 <Search />
-                <img className="cart-img" src='/assets/cart.svg' alt="cart" />
+                <Link to="/cart">
+                    <img className="cart-img" src='/assets/cart.svg' alt="cart" />
+                </Link>
                 <MenuContent />
             </div>
         </div>

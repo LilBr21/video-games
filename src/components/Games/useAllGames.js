@@ -1,12 +1,12 @@
 import {useEffect,useState} from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { gamesActions } from '../../store/index';
+import { gamesActions } from '../../store/games';
 //import {useFetch} from "../useFetch";
 
 const useGames = () => {      
       const dispatch = useDispatch();
-      const currentPage = useSelector(state => state.currentPage);
-      const searchPhrase = useSelector(state => state.searchPhrase);
+      const currentPage = useSelector(state => state.games.currentPage);
+      const searchPhrase = useSelector(state => state.games.searchPhrase);
 
       //const {fetchedData, isLoading,fetchGames}=useFetch()
 

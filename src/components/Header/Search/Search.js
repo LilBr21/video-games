@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { gamesActions } from '../../../store/index';
+import { gamesActions } from '../../../store/games';
 
-import './search.styles.css';
+import './search.styles.scss';
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const dispatch = useDispatch();
     const history = useHistory();
 
+    //debounce <- lodash
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
         event.preventDefault();
@@ -20,14 +21,6 @@ const Search = () => {
         console.log(searchTerm);
         dispatch(gamesActions.searchGames(searchTerm));
         history.push('/allgames');
-        // let searchTerm = searchPhrase.split(' ').join('-').toLowerCase();
-        // setFoundGames([]);
-        // fetch(`https://api.rawg.io/api/games?key=f32778b2bef84d9fb2f4fd9f8a200fd5&search=${searchTerm}`)
-        // .then(resp => resp.json())
-        // .then(({results}) => {
-        //     results === undefined ? alert('No games found') : setFoundGames(results);
-        // })
-        //dispatch(gamesActions.resetSearch());
     }
 
     return (

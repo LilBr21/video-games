@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import HamburgerMenu from './HamburgerMenu';
 
-import './menu.styles.css';
+import './menu.styles.scss';
 
 const MenuContent = () => {
     const [menuIsShown, setMenuIsShown] = useState(false);

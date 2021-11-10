@@ -1,13 +1,45 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import { useDispatch, useSelector } from 'react-redux';
+import { gamesActions } from '../../store/games';
+//import { priceActions } from '../../store/prices';
+//import { useEffect, useState } from 'react';
+
 import Header from '../Header/Header';
 import useMoreInfo from './useMoreInfo';
 
 import './moreinfo.styles.scss';
 
 const MoreInfo = () => {
-    const { fetchedScreenshots, ...fetchedExtension } = useMoreInfo();
+    const { 
+        fetchedScreenshots, 
+        name,
+        background_image, 
+        description_raw, 
+        released, 
+        rating, 
+        platforms,
+        randomPrice,
+        chosenId
+    } = useMoreInfo();
 
-    console.log(fetchedExtension);
+    const dispatch = useDispatch();
+    //try with useMemo (,[])
+    //const randomPrice = generateRandomPrice(30, 200);
+    const gameToCartHandler = (randomPrice, chosenId) => {
+        dispatch(gamesActions.addGameToCart(name));
+        dispatch(gamesActions.addPriceToCart(randomPrice));
+    }
+
+    //dispatch(priceActions.createPrice({chosenId: chosenId, randomPrice: randomPrice}));
+
+    useSelector(state => state.prices.activePrice)
+
+    // useEffect(() => {
+    //     setGamePrice()
+    // }, [])
+
+    //console.log(fetchedExtension);
+    
     return (
         <div>
             <div>
@@ -16,31 +48,32 @@ const MoreInfo = () => {
             <div className="extended-container">
                 <div className="top-container">
                     <div className="game-name-container">
-                        <h3 className="game-name">{fetchedExtension.name}</h3>
+                        <h3 className="game-name">{name}</h3>
                     </div>
-                    <div className="add-btn-container">
+                    <p className="game-price">{randomPrice}$</p>
+                    <div onClick={()=>gameToCartHandler(randomPrice, chosenId)} className="add-btn-container">
                         <button className="add-btn">Add to cart</button>
                     </div>
                 </div>
                 <img 
                     className="game-pic" 
-                    src={fetchedExtension.background_image} 
+                    src={background_image} 
                     alt="main game picture" 
                 />
-                <p className="game-description">{fetchedExtension.description_raw}</p>
+                <p className="game-description">{description_raw}</p>
                 <p className="game-description">Date of release: 
-                    <span className="game-data">{fetchedExtension.released}</span>
+                    <span className="game-data">{released}</span>
                 </p>
                 <p className="game-description">Rating: 
-                    <span className="game-data">{fetchedExtension.rating}</span>
+                    <span className="game-data">{rating}</span>
                 </p>
                 <p className="game-description">Platforms:</p>
-                {fetchedExtension.platforms && fetchedExtension.platforms.map(platform => (
-                    <p key={platform.id} className="game-platform">{platform.platform.name}</p>
+                {platforms && platforms.map(platform => (
+                    <p key={platform.index} className="game-platform">{platform.platform.name}</p>
                 ))}
                 <div>
                     {fetchedScreenshots && fetchedScreenshots.map(image => (
-                        <img className="game-screenshots" key={image.id} src={image.image} alt="gameplay screenshot"></img>
+                        <img className="game-screenshots" key={Math.floor(Math.random() * Date.now())} src={image.image} alt="gameplay screenshot"></img>
                     ))}
                 </div>
             </div>

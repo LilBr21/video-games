@@ -1,32 +1,50 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { priceActions } from '../../store/prices';
 
 const useMoreInfo = () => {
     const [fetchedExtension, setFetchedExtension] = useState([]);
     const [fetchedScreenshots, setFetchedScreenshots] = useState([]);
-    const moreInfoId = useSelector(state => state.moreInfoId);
+    //const [fetchedMoreInfo, setFetchedMoreInfo] = useState([]);
+    const [randomPrice, setRandomPrice] = useState(0);
+    const moreInfoId = useSelector(state => state.games.moreInfoId);
     const [chosenId, setChosenId] = useState(moreInfoId);
 
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
+    const dispatch = useDispatch();
+
+    const generateRandomPrice = (min, max) => {
+        return (
+            Math.floor(Math.random() * (max - min + 1) + min)
+        )
+    }
+
+    // randomPrice setPrice usestate
+    //useEffect
+
+    useEffect(() => {
+        setRandomPrice(generateRandomPrice(30, 200));
+    }, []);
+
+
+    dispatch(priceActions.createPrice({chosenId: chosenId, randomPrice: randomPrice}));
+
+    //let gamePrice = {price: randomPrice};
 
     useEffect(() => {
        setChosenId(moreInfoId)
     }, [moreInfoId])
 
-    console.log(moreInfoId);
-    //const state = useSelector(state => state);
-
     let infoFetcher = `https://api.rawg.io/api/games/${chosenId}?key=${API_KEY}`;
     let screenshotsFetcher = `https://api.rawg.io/api/games/${chosenId}/screenshots?key=${API_KEY}`;
-
-    //`https://api.rawg.io/api/games?key=${API_KEY}&id=${chosenId}`
 
     const fetchGameInfo = () => {
         fetch(infoFetcher)
           .then((resp) => resp.json())
           .then(( results ) => {
           setFetchedExtension(results);
-          console.log(results);
+          console.log(fetchedExtension);
           }).catch((err)=>{
               alert("Something went wrong")
           });
@@ -37,8 +55,6 @@ const useMoreInfo = () => {
         .then((resp) => resp.json())
         .then(({ results }) => {
         setFetchedScreenshots(results);
-        console.log(results);
-        //console.log(results);
         }).catch((err)=>{
             alert("Something went wrong")
         });
@@ -50,9 +66,18 @@ const useMoreInfo = () => {
           // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [chosenId])
 
+       // useEffect(() => {
+            // if (fetchedExtension[0] !== undefined) {
+            //     setFetchedMoreInfo({...fetchedExtension, ...gamePrice})
+            //     console.log(fetchedMoreInfo);
+            // }
+        // }, [fetchedExtension])
+
         return {
             ...fetchedExtension,
-            fetchedScreenshots
+            fetchedScreenshots,
+            randomPrice, 
+            chosenId
         }
       
 }

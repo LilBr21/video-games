@@ -1,8 +1,8 @@
 import Header from '../Header/Header';
 import GameCard from '../GameCard/GameCard';
-import useGames from './useGames';
+import useGames from './useAllGames';
 
-import './games.styles.css';
+import './allgames.styles.scss';
 
 const Games = () => {
     const { fetchedData,
@@ -10,7 +10,6 @@ const Games = () => {
           goToNextPageHandler,
           goToPreviousPageHandler} = useGames();
 
-    console.log("fetchedData:", fetchedData)
 
     return (
         <div>

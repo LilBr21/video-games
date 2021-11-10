@@ -1,4 +1,4 @@
-import './hamburger.styles.css';
+import './hamburger.styles.scss';
 
 const HamburgerMenu = ({menuIsShown}) => {
     return (

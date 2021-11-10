@@ -1,4 +1,4 @@
-import './homepage.styles.css';
+import './homepage.styles.scss';
 
 import Header from '../Header/Header';
 
