@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { gamesActions } from '../../../store/games'
 
 import HamburgerMenu from './HamburgerMenu';
 
@@ -7,6 +9,13 @@ import './menu.styles.scss';
 
 const MenuContent = () => {
     const [menuIsShown, setMenuIsShown] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const resetSearchHandler = () => {
+        dispatch(gamesActions.resetSearch())
+        console.log('123')
+    }
 
     const openMenuHandler = () => {
         setMenuIsShown(!menuIsShown);
@@ -26,7 +35,7 @@ const MenuContent = () => {
                 </ul>
                 <h3 className="menu-title">Rankings</h3>
                 <Link to='/allgames' className="router-link">
-                    <h3 className="menu-title">See all</h3>
+                    <h3 onClick={resetSearchHandler} className="menu-title">See all</h3>
                 </Link>
         </div>
         </div>

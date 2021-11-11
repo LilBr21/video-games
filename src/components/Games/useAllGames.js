@@ -32,9 +32,6 @@ const useGames = () => {
           baseUrl+=`&search=${searchPhrase}`
         }
 
-        console.log("url for fetching", baseUrl)
-
-
         return baseUrl;
     }
 

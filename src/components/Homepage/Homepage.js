@@ -1,10 +1,19 @@
 import './homepage.styles.scss';
-
 import Header from '../Header/Header';
-
+import { useDispatch } from 'react-redux'
+import {gamesActions} from '../../store/games'
 import { Link } from 'react-router-dom';
 
+
 const Homepage = () => {
+
+    const dispatch = useDispatch();
+
+    const resetSearchHandler = () => {
+        dispatch(gamesActions.resetSearch())
+        console.log('123')
+    }
+
     return (
         <div className="homepage">
             <Header />
@@ -21,7 +30,7 @@ const Homepage = () => {
                     </ul>
                     <div className="btn-container">
                         <Link to='/allgames'>
-                            <button className="seeallbtn">See all</button>
+                            <button onClick={resetSearchHandler} className="seeallbtn">See all</button>
                         </Link>
                     </div>
                 </div>
