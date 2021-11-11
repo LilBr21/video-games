@@ -6,13 +6,15 @@ import { priceActions } from '../../store/prices';
 const useMoreInfo = () => {
     const [fetchedExtension, setFetchedExtension] = useState([]);
     const [fetchedScreenshots, setFetchedScreenshots] = useState([]);
-    //const [fetchedMoreInfo, setFetchedMoreInfo] = useState([]);
-    const [randomPrice, setRandomPrice] = useState(0);
+    const [gamePrice, setGamePrice] = useState(0);
     const moreInfoId = useSelector(state => state.games.moreInfoId);
+    const allPrices = useSelector(state => state.prices.allPrices);
     const [chosenId, setChosenId] = useState(moreInfoId);
 
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
     const dispatch = useDispatch();
+
+    console.log(allPrices.length);
 
     const generateRandomPrice = (min, max) => {
         return (
@@ -20,17 +22,18 @@ const useMoreInfo = () => {
         )
     }
 
-    // randomPrice setPrice usestate
-    //useEffect
+    const newPair = {id: chosenId, price: generateRandomPrice(30, 200)};
 
-    useEffect(() => {
-        setRandomPrice(generateRandomPrice(30, 200));
-    }, []);
-
-
-    dispatch(priceActions.createPrice({chosenId: chosenId, randomPrice: randomPrice}));
-
-    //let gamePrice = {price: randomPrice};
+    useEffect (() => {
+    let existingPricePair = allPrices.find(({id}) => id === chosenId);
+    if (existingPricePair) {
+        setGamePrice(existingPricePair.price);
+    } else {
+        dispatch(priceActions.createPrice(newPair));
+        setGamePrice(newPair.price);
+    }
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [chosenId])
 
     useEffect(() => {
        setChosenId(moreInfoId)
@@ -44,7 +47,6 @@ const useMoreInfo = () => {
           .then((resp) => resp.json())
           .then(( results ) => {
           setFetchedExtension(results);
-          console.log(fetchedExtension);
           }).catch((err)=>{
               alert("Something went wrong")
           });
@@ -66,20 +68,13 @@ const useMoreInfo = () => {
           // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [chosenId])
 
-       // useEffect(() => {
-            // if (fetchedExtension[0] !== undefined) {
-            //     setFetchedMoreInfo({...fetchedExtension, ...gamePrice})
-            //     console.log(fetchedMoreInfo);
-            // }
-        // }, [fetchedExtension])
-
         return {
             ...fetchedExtension,
             fetchedScreenshots,
-            randomPrice, 
+            gamePrice, 
             chosenId
         }
-      
-}
+    }  
+
 
 export default useMoreInfo;

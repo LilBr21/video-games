@@ -6,12 +6,16 @@ import './cart.styles.scss';
 
 const Cart = () => {
     const cartNames =useSelector(state => state.games.cartNames);
-    const cartPrices = useSelector(state => state.prices.allPrices);
+    const cartPrices = useSelector(state => state.games.cartPrices);
     let finalGamesNames = [...new Set(cartNames)]
-    console.log(finalGamesNames);
-    console.log(cartPrices);
-
-    //const totalPrice = cartPrices.reduce((a, b) => a + b, 0);
+    // let finalPrices = [];
+    // cartPrices.map(pricePair => {
+    //     finalPrices.push(pricePair.price)
+    //     return (
+    //         finalPrices
+    //     )
+    // }) 
+    const totalPrice = cartPrices.reduce((a, b) => a + b, 0);
 
     return (
         <div className="cart-page">
@@ -21,19 +25,20 @@ const Cart = () => {
                 <div className="bought-games-container">
                     <div className="cart-names-container">
                         {finalGamesNames.map(name => (
-                            <p key={name.index + Math.random()}>{name}</p>
+                            <p key={Math.floor(Math.random() * 100)}>{name}</p>
                         ))}
                     </div>
                     <div className="cart-prices-container">
-                        {cartPrices.map(price => (
-                            <p key={price.index + Date.now()}>{price.price}$</p>
+                        {cartPrices.map(price =>
+                            (
+                            <p key={Math.floor(Math.random() * 100)}>{price}$</p>
                         ))}
                     </div>
                 </div>
                 <div className="total-container">
                     <p>Total:</p>
                     <div className="total-price-container">
-                        <p>totalPrice $</p>
+                        <p>{totalPrice} $</p>
                     </div>
                 </div>
                 <div>
