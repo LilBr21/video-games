@@ -1,21 +1,20 @@
 import { useSelector } from 'react-redux';
+//import { useState } from 'react';
 
 import Header from '../Header/Header';
+import AddedGame from './AddedGame';
 
 import './cart.styles.scss';
 
 const Cart = () => {
-    const cartNames =useSelector(state => state.games.cartNames);
-    const cartPrices = useSelector(state => state.games.cartPrices);
-    let finalGamesNames = [...new Set(cartNames)]
-    // let finalPrices = [];
-    // cartPrices.map(pricePair => {
-    //     finalPrices.push(pricePair.price)
-    //     return (
-    //         finalPrices
-    //     )
-    // }) 
-    const totalPrice = cartPrices.reduce((a, b) => a + b, 0);
+    const cartPairs = useSelector(state => state.games.cartPairs);
+
+    let allCartPrices = [];
+    for (let i = 0; i < cartPairs.length; i++) {
+            allCartPrices.push(cartPairs[i].gamePrice)
+    }
+         
+    const totalPrice = allCartPrices.reduce((a, b) => a + b, 0);
 
     return (
         <div className="cart-page">
@@ -23,17 +22,9 @@ const Cart = () => {
             <div className="cart-container">
                 <h3 className="cart-title">Cart items:</h3>
                 <div className="bought-games-container">
-                    <div className="cart-names-container">
-                        {finalGamesNames.map(name => (
-                            <p key={Math.floor(Math.random() * 100)}>{name}</p>
-                        ))}
-                    </div>
-                    <div className="cart-prices-container">
-                        {cartPrices.map(price =>
-                            (
-                            <p key={Math.floor(Math.random() * 100)}>{price}$</p>
-                        ))}
-                    </div>
+                    {cartPairs.map(pair => (
+                        <AddedGame key={Math.floor(Math.random() * 100)} price={pair.gamePrice} name={pair.name}/>
+                    ))}
                 </div>
                 <div className="total-container">
                     <p>Total:</p>

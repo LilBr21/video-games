@@ -14,8 +14,6 @@ const useMoreInfo = () => {
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
     const dispatch = useDispatch();
 
-    console.log(allPrices.length);
-
     const generateRandomPrice = (min, max) => {
         return (
             Math.floor(Math.random() * (max - min + 1) + min)

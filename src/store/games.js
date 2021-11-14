@@ -8,7 +8,9 @@ const initialGamesState = {
     gameToCartName: '',
     cartNames: [],
     gameToCartPrice: 0,
-    cartPrices: []
+    cartPrices: [],
+    cartPairs: [], 
+    //totalPrice: 0
 };
 
 const gamesSlice = createSlice({
@@ -38,6 +40,12 @@ const gamesSlice = createSlice({
             state.gameToCartPrice = action.payload;
             state.cartPrices = ([...state.cartPrices, state.gameToCartPrice]);
         },
+        addNewCartPair(state, action) {
+            state.cartPairs = ([...state.cartPairs, action.payload]);
+        },
+        deleteFromCart(state, action) {
+            state.cartPairs.splice(action.payload, 1);
+        }
     },
 });
 

@@ -1,0 +1,33 @@
+@import'../../variables/variables.scss';
+
+.addedgame-container {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.addedgame-name {
+    margin-right: 2rem;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.addedgame-price {
+    font-size: 20px;
+}
+
+.addedgame-btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addedgame-close-btn {
+    margin-left: 1.5rem;
+    @include main-button(20px, 20px, 15px);
+}
+
+.addedgame-close-btn:hover {
+    background-color: $hoverBtnColor;
+}

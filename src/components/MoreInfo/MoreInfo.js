@@ -16,14 +16,16 @@ const MoreInfo = () => {
         rating, 
         platforms,
         gamePrice,
-        chosenId
     } = useMoreInfo();
 
     const dispatch = useDispatch();
 
-    const gameToCartHandler = (gamePrice) => {
+    const newCartPair = {name: name, gamePrice: gamePrice};
+
+    const gameToCartHandler = () => {
         dispatch(gamesActions.addGameToCart(name));
         dispatch(gamesActions.addPriceToCart(gamePrice));
+        dispatch(gamesActions.addNewCartPair(newCartPair))
     }
 
     useSelector(state => state.prices.activePrice)
@@ -39,7 +41,7 @@ const MoreInfo = () => {
                         <h3 className="game-name">{name}</h3>
                     </div>
                     <p className="game-price">{gamePrice}$</p>
-                    <div onClick={()=>gameToCartHandler(gamePrice, chosenId)} className="add-btn-container">
+                    <div onClick={()=>gameToCartHandler(gamePrice, name, newCartPair)} className="add-btn-container">
                         <button className="add-btn">Add to cart</button>
                     </div>
                 </div>
