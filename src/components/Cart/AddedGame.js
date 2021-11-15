@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { gamesActions } from '../../store/games';
+import { cartActions } from '../../store/cart';
 
 import './addedgame.styles.scss';
 
@@ -14,6 +15,7 @@ const AddedGame = (props) => {
             dispatch(gamesActions.deleteFromCart(index))
         }
         console.log(deletedGame);
+        dispatch(cartActions.decrementGamesQuant());
     }
 
     return (

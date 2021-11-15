@@ -1,9 +1,8 @@
-//import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { gamesActions } from '../../store/games';
-//import { useResearchSearch } from '../useResetSearch';
 import MenuContent from './HamburgerMenu/MenuContent';
 import Search from './Search/Search';
+import CartItemsCounter from './CartItemsCounter/CartItemsCounter';
 import './header.styles.scss';
 
 import { Link } from 'react-router-dom';
@@ -15,6 +14,7 @@ const Header = () => {
         dispatch(gamesActions.resetSearch())
     }
 
+
     return (
         <div className="header">
             <Link to='/' className="homepage-link">
@@ -22,9 +22,14 @@ const Header = () => {
             </Link>
             <div className="header-right-side">
                 <Search />
-                <Link to="/cart">
-                    <img className="cart-img" src='/assets/cart.svg' alt="cart" />
-                </Link>
+                <div>
+                    <Link to="/cart">
+                        <img className="cart-img" src='/assets/cart.svg' alt="cart" />
+                    </Link>
+                    <div className="cart-counter-container">
+                        <CartItemsCounter /> 
+                    </div>
+                </div>
                 <MenuContent />
             </div>
         </div>
