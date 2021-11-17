@@ -26,3 +26,22 @@ $hoverBtnColor: #812123;
     text-decoration: none;
     color: $MainLightColor;
 }
+
+@mixin every-games-container {
+    color: $MainDarkColor;
+    background-color: $LighterDarkColor;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin games-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
+    justify-items: center;
+}

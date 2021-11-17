@@ -12,10 +12,6 @@ const GameCard = ({
     
     const dispatch = useDispatch();
     const history = useHistory();
-    
-    // useEffect(() => {
-    //     dispatch(gamesActions.getMoreInfo(id));
-    // }, [])
 
     const showMoreHandler = () => {
     dispatch(gamesActions.getMoreInfo(id));
@@ -29,9 +25,12 @@ const GameCard = ({
                 src={background_image} 
                 alt="game" 
             />
-            <h3 className="game-name">{name}</h3>
-            <p className="game-rating">rating: {rating}</p>
-            <button onClick={showMoreHandler} className="more-btn">More</button>
+            <div className="card-second-part-container">
+                <h3 className="game-name">{name}</h3>
+                <p className="game-rating">rating: {rating}</p>
+                <button onClick={showMoreHandler} className="more-btn">More</button>
+            </div>
+
         </div>           
     )
 }

@@ -10,7 +10,8 @@ const initialGamesState = {
     gameToCartPrice: 0,
     cartPrices: [],
     cartPairs: [], 
-    //totalPrice: 0
+    platformFilter: 0,
+    seeTopRanking: false
 };
 
 const gamesSlice = createSlice({
@@ -45,6 +46,12 @@ const gamesSlice = createSlice({
         },
         deleteFromCart(state, action) {
             state.cartPairs.splice(action.payload, 1);
+        },
+        filterByPlatform(state, action) {
+            state.platformFilter = action.payload;
+        },
+        seeTopRanking(state) {
+            state.seeTopRanking = true;
         }
     },
 });

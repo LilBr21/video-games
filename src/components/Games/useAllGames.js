@@ -1,26 +1,18 @@
 import {useEffect,useState} from "react"
-import { useSelector, useDispatch } from 'react-redux';
-import { gamesActions } from '../../store/games';
-//import {useFetch} from "../useFetch";
+import { useSelector } from 'react-redux';
 
 const useGames = () => {      
-      const dispatch = useDispatch();
-      const currentPage = useSelector(state => state.games.currentPage);
-      const searchPhrase = useSelector(state => state.games.searchPhrase);
+    const currentPage = useSelector(state => state.games.currentPage);
+    const searchPhrase = useSelector(state => state.games.searchPhrase);
+    //const seeTopRanking = useSelector(state => state.games.seeTopRanking);
 
-      //const {fetchedData, isLoading,fetchGames}=useFetch()
-
-      const [fetchedData, setFetchedData] = useState([])
-
-    const state = useSelector(state => state)
+    const [fetchedData, setFetchedData] = useState([])
 
     const [isLoading, setLoading] = useState(false);
 
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
 
     const queryBuilder=()=>{
-        console.log(API_KEY);
-        console.log("query builder", state);
         let baseUrl=`https://api.rawg.io/api/games?key=${API_KEY}`;
         if (currentPage && searchPhrase) {
           baseUrl+=`&search=${searchPhrase}`
@@ -50,23 +42,11 @@ const useGames = () => {
       useEffect(() => {
         fetchGames();
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [state])
-  
-  const goToNextPageHandler = () => {
-    dispatch(gamesActions.nextPage());
-  }
-
-  const goToPreviousPageHandler = () => {
-    if (currentPage > 1) {
-      dispatch(gamesActions.prevPage());
-    }
-  }
+      }, [searchPhrase, currentPage])
     
       return {
           fetchedData,
-          isLoading,
-          goToNextPageHandler,
-          goToPreviousPageHandler
+          isLoading
       }
 }
 

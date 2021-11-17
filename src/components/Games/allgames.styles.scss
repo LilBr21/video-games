@@ -9,13 +9,11 @@
 }
 
 .game-part-container {
-    color: $MainDarkColor;
-    background-color: $LighterDarkColor;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include every-games-container;
+}
+
+.all-games-container {
+    @include games-container;
 }
 
 .games-title {
@@ -27,11 +25,11 @@
     font-size: 30px;
 }
 
-.next-btn, .prev-btn {
-    @include main-button(40px, 120px, 20px);
-    margin: 0 2rem 3rem 2rem;
-}
+// .next-btn, .prev-btn {
+//     @include main-button(40px, 120px, 20px);
+//     margin: 0 2rem 3rem 2rem;
+// }
 
-.next-btn:hover, .prev-btn:hover {
-    background-color: $hoverBtnColor;
-}
+// .next-btn:hover, .prev-btn:hover {
+//     background-color: $hoverBtnColor;
+// }

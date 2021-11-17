@@ -1,14 +1,15 @@
 import Header from '../Header/Header';
 import GameCard from '../GameCard/GameCard';
+import Buttons from '../Buttons/Buttons';
 import useGames from './useAllGames';
 
 import './allgames.styles.scss';
 
 const Games = () => {
-    const { fetchedData,
-          isLoading,
-          goToNextPageHandler,
-          goToPreviousPageHandler} = useGames();
+    const { 
+        fetchedData,
+        isLoading 
+    } = useGames();
 
 
     return (
@@ -21,7 +22,7 @@ const Games = () => {
                 {isLoading ?  
                     <p className="loading">Loading...</p>
                 :
-                <div className="games-container">
+                <div className="all-games-container">
                 {fetchedData.map(game => (
                     <GameCard 
                     key={game.id}
@@ -31,8 +32,7 @@ const Games = () => {
                 </div>
                 }
                 <div>
-                    <button className="next-btn" onClick={goToPreviousPageHandler}>BACK</button>
-                    <button className="prev-btn" onClick={goToNextPageHandler}>NEXT</button>
+                    <Buttons />
                 </div>
             </div>
         </div>
