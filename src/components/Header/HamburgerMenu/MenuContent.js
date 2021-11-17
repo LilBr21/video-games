@@ -69,7 +69,9 @@ const MenuContent = () => {
                     </Link>
                     </div>
                 </ul>
-                <h3 onClick={seeTopRankingHandler} className="menu-title">Rankings</h3>
+                <Link to="/ranking" className="router-link">
+                    <h3 onClick={seeTopRankingHandler} className="menu-title">Rankings</h3>
+                </Link>
                 <Link to='/allgames' className="router-link">
                     <h3 onClick={resetSearchHandler} className="menu-title">See all</h3>
                 </Link>

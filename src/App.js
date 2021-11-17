@@ -3,6 +3,7 @@ import Homepage from './components/Homepage/Homepage';
 import MoreInfo from './components/MoreInfo/MoreInfo';
 import Cart from './components/Cart/Cart';
 import FilteredByPlatform from './components/Games/FilteredByPlatform/FilteredByPlatform';
+import GamesRanking from './components/Games/GamesRanking/GamesRanking';
 
 import './App.scss';
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/moreinfo" component={MoreInfo} />
           <Route path="/cart" exact component={Cart} />
           <Route path="/gamesbyplatform" component={FilteredByPlatform} />
+          <Route path="/ranking" component={GamesRanking} />
         </Switch>
       </div>
     </Router>
