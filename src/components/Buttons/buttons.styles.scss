@@ -1,0 +1,10 @@
+@import'../../variables/variables.scss';
+
+.next-btn, .prev-btn {
+    @include main-button(40px, 120px, 20px);
+    margin: 0 2rem 3rem 2rem;
+}
+
+.next-btn:hover, .prev-btn:hover {
+    background-color: $hoverBtnColor;
+}
