@@ -4,14 +4,7 @@ const initialGamesState = {
     currentPage: 1,
     loading: false,
     searchPhrase: "",
-    moreInfoId: 0,
-    gameToCartName: '',
-    cartNames: [],
-    gameToCartPrice: 0,
-    cartPrices: [],
-    cartPairs: [], 
-    platformFilter: 0,
-    seeTopRanking: false
+    moreInfoId: 0
 };
 
 const gamesSlice = createSlice({
@@ -32,26 +25,6 @@ const gamesSlice = createSlice({
         },
         getMoreInfo(state, action) {
             state.moreInfoId = action.payload;
-        },
-        addGameToCart(state, action) {
-            state.gameToCartName = action.payload;
-            state.cartNames = ([...state.cartNames, state.gameToCartName]);
-        },
-        addPriceToCart(state, action) {
-            state.gameToCartPrice = action.payload;
-            state.cartPrices = ([...state.cartPrices, state.gameToCartPrice]);
-        },
-        addNewCartPair(state, action) {
-            state.cartPairs = ([...state.cartPairs, action.payload]);
-        },
-        deleteFromCart(state, action) {
-            state.cartPairs.splice(action.payload, 1);
-        },
-        filterByPlatform(state, action) {
-            state.platformFilter = action.payload;
-        },
-        seeTopRanking(state) {
-            state.seeTopRanking = true;
         }
     },
 });

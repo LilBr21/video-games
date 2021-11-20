@@ -23,7 +23,7 @@ const MenuContent = () => {
     }
 
     const chooseConsoleHandler = (chosenConsole, consoleName) => {
-        dispatch(gamesActions.filterByPlatform(chosenConsole));
+        dispatch(filtersActions.filterByPlatform(chosenConsole));
         dispatch(filtersActions.assignConsoleName(consoleName));
     }
 

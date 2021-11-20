@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { gamesActions } from '../../store/games';
 import { cartActions } from '../../store/cart';
 
 import Header from '../Header/Header';
@@ -24,13 +23,11 @@ const MoreInfo = () => {
     const newCartPair = {name: name, gamePrice: gamePrice};
 
     const gameToCartHandler = () => {
-        dispatch(gamesActions.addGameToCart(name));
-        dispatch(gamesActions.addPriceToCart(gamePrice));
-        dispatch(gamesActions.addNewCartPair(newCartPair));
+        dispatch(cartActions.addGameToCart(name));
+        dispatch(cartActions.addPriceToCart(gamePrice));
+        dispatch(cartActions.addNewCartPair(newCartPair));
         dispatch(cartActions.incrementGamesQuant());
     }
-
-    // useSelector(state => state.prices.activePrice)
     
     return (
         <div>

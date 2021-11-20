@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialFiltersState = {
-    consoleName: ''
+    consoleName: '',
+    platformFilter: 0,
 }
 
 const filtersSlice = createSlice({
@@ -10,7 +11,10 @@ const filtersSlice = createSlice({
     reducers: {
         assignConsoleName(state, action) {
             state.consoleName = action.payload;
-        }
+        },
+        filterByPlatform(state, action) {
+            state.platformFilter = action.payload;
+        },
     }
 })
 
