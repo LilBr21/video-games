@@ -1,39 +1,20 @@
-import Header from '../../Header/Header';
+//import Header from '../../Header/Header';
 import useFilteredByPlatform from './useFilteredByPlatform';
-import GameCard from '../../GameCard/GameCard';
-import Buttons from '../../Buttons/Buttons';
+import MainGamesPage from '../MainGamesPage/MainGamesPage';
 
 import { useSelector } from 'react-redux';
 
-import './filteredbyplatform.styles.scss';
-
 const FilteredByPlatform = () => {
-    const { fetchedPlatformGames } = useFilteredByPlatform();
+    const { fetchedPlatformGames, isLoading } = useFilteredByPlatform();
 
     const consoleName = useSelector(state => state.filters.consoleName);
 
-    console.log(fetchedPlatformGames)
-
     return (
-        <div>
-            <Header />
-            <div className="platform-games-container">
-                <div>
-                    <h2 className="console-title">{consoleName}</h2>
-                </div>
-                <div className="inside-container">
-                {fetchedPlatformGames.map(game => (
-                    <GameCard 
-                    key={game.id}
-                    {...game}
-                    />
-                    ))}
-                </div>
-                <div>
-                    <Buttons />
-                </div>
-            </div>
-        </div>
+        <MainGamesPage 
+            gamesData={fetchedPlatformGames} 
+            pageTitle={consoleName}
+            isLoading={isLoading}
+        />
     )
 
 }

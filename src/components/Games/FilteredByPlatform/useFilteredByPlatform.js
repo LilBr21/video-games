@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 
 const useFilteredByPlatform = () => {
     const [fetchedPlatformGames, setFetchedPlatformGames] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
     const filterPlatform = useSelector(state => state.games.platformFilter);
     const currentPage = useSelector(state => state.games.currentPage);
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
@@ -16,10 +17,12 @@ const useFilteredByPlatform = () => {
     }
 
     const fetchFilteredPlatform = () => {
+        setIsLoading(true);
         fetch(queryPlatformBuilder())
             .then((resp) => resp.json())
             .then(({ results }) => {
             setFetchedPlatformGames(results);
+            setIsLoading(false);
             console.log(fetchedPlatformGames);
         }).catch((err)=>{
           alert("Something went wrong")
@@ -32,7 +35,8 @@ const useFilteredByPlatform = () => {
     }, [filterPlatform, currentPage])
 
     return {
-        fetchedPlatformGames
+        fetchedPlatformGames,
+        isLoading
     }
 
 }

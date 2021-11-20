@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 const useGames = () => {      
     const currentPage = useSelector(state => state.games.currentPage);
     const searchPhrase = useSelector(state => state.games.searchPhrase);
-    //const seeTopRanking = useSelector(state => state.games.seeTopRanking);
 
     const [fetchedData, setFetchedData] = useState([])
 

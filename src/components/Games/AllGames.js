@@ -1,6 +1,3 @@
-// import Header from '../Header/Header';
-// import GameCard from '../GameCard/GameCard';
-// import Buttons from '../Buttons/Buttons';
 import useGames from './useAllGames';
 import MainGamesPage from './MainGamesPage/MainGamesPage';
 
@@ -12,7 +9,11 @@ const Games = () => {
 
 
     return (
-        <MainGamesPage gamesData={fetchedData} pageTitle={"All games:"} isLoading={isLoading}/>
+        <MainGamesPage 
+            gamesData={fetchedData} 
+            pageTitle={"All games:"} 
+            isLoading={isLoading}
+        />
     )
 }
 

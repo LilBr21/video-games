@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 const useGamesRanking = () => {
     const [fetchedRanking, setFetchedRanking] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
     const currentPage = useSelector(state => state.games.currentPage);
 
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
@@ -16,10 +18,12 @@ const useGamesRanking = () => {
     }
 
     const fetchRankingGames = () => {
+        setIsLoading(true);
         fetch(queryRankingBuilder())
             .then((resp) => resp.json())
             .then(({ results }) => {
             setFetchedRanking(results);
+            setIsLoading(false);
             console.log(fetchedRanking);
         }).catch((err)=>{
             alert("Something went wrong")
@@ -32,7 +36,8 @@ const useGamesRanking = () => {
     }, [currentPage])
 
     return {
-        fetchedRanking
+        fetchedRanking,
+        isLoading
     }
 }
 

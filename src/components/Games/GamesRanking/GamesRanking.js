@@ -1,33 +1,17 @@
 import useGamesRanking from './useGamesRanking';
-import GameCard from '../../GameCard/GameCard';
-import Buttons from '../../Buttons/Buttons';
-import Header from '../../Header/Header';
-
-import'./gamesranking.styles.scss';
+import MainGamesPage from '../MainGamesPage/MainGamesPage';
 
 const GamesRanking = () => {
-    const { fetchedRanking } = useGamesRanking();
+    const { fetchedRanking, isLoading } = useGamesRanking();
 
     return (
         <div>
-            <Header />
-            <div className="ranking-games-container">
-                <div>
-                    <h2 className="ranking-title">Top games</h2>
-                </div>
-                <div className="inside-ranking-container">
-                    {fetchedRanking.map(game => (
-                        <GameCard 
-                        key={game.id}
-                        {...game}
-                        />
-                    ))}
-                </div>
-                <div>
-                    <Buttons />
-                </div>
-            </div>
-        </div>
+            <MainGamesPage 
+                gamesData={fetchedRanking} 
+                pageTitle={"Top games ranking"} 
+                isLoading={isLoading}
+            />
+        </div>    
     )
 
 }
