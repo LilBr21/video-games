@@ -1,0 +1,80 @@
+@import'../../../variables/variables.scss';
+
+.form, .form-title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-title-container {
+    font-family: $mainTextFont;
+}
+
+.form-row {
+    display: flex;
+}
+
+.form-pair {
+    margin: 0 0.5rem;
+}
+
+.form-label, .form-input {
+    width: 200px;
+}
+
+.form-label, .large-form-label, .small-form-label {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: start;
+    color: $redColor;
+    font-family: $mainTextFont;
+}
+
+.form-input, .large-form-input, .small-form-input {
+    margin: 0.6rem 0;
+    height: 25px;
+    border-radius: 3px;
+    border-style: none;
+}
+
+.large-form-input, .large-form-label {
+    width: 420px;
+}
+
+.small-form-input, .small-form-label {
+    width: 90px;
+}
+
+.form-input:focus {
+    outline-style: none;
+    border-color: $redColor;
+}
+
+.form-error {
+    color: $redColor;
+    font-size: 12px;
+}
+
+.submit-btn {
+    @include main-button(40px, 100px, 20px);
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: $hoverBtnColor;
+}
+
+.ordered-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ordered-title {
+    color: $redColor;
+    font-family: $mainTextFont;
+    font-size: 30px;
+}

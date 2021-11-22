@@ -1,18 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { gamesActions } from '../../store/games';
 import { cartActions } from '../../store/cart';
 
 import './addedgame.styles.scss';
 
 const AddedGame = (props) => {
     const dispatch = useDispatch();
-    const cartPairs = useSelector(state => state.games.cartPairs);
+    const cartPairs = useSelector(state => state.cart.cartPairs);
 
     const deleteFromCartHandler = () => {
         let deletedGame = cartPairs.find(({name}) => name === props.name);
         const index = cartPairs.indexOf(deletedGame);
         if (index > -1) {
-            dispatch(gamesActions.deleteFromCart(index))
+            dispatch(cartActions.deleteFromCart(index))
         }
         console.log(deletedGame);
         dispatch(cartActions.decrementGamesQuant());
