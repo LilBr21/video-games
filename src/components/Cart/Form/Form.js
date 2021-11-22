@@ -1,10 +1,13 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
+import { cartActions } from '../../../store/cart';
+import { useDispatch } from 'react-redux'
 
 import'./form.styles.scss';
 
 const Form = () => {
     const [isOrdered, setIsOrdered] = useState(false);
+    const dispatch = useDispatch();
 
     const validate = values => {
         const errors = {};
@@ -74,6 +77,7 @@ const Form = () => {
         onSubmit: () => {
             //alert(JSON.stringify(values, null, 2));
             setIsOrdered(true);
+            dispatch(cartActions.finishOrder())
         },
     });
     return (

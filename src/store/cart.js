@@ -33,6 +33,10 @@ const cartSlice = createSlice({
         deleteFromCart(state, action) {
             state.cartPairs.splice(action.payload, 1);
         },
+        finishOrder(state) {
+            state.gamesQuant = 0;
+            state.cartPairs = [];
+        }
     }
 })
 
