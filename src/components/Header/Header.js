@@ -22,15 +22,19 @@ const Header = () => {
             </Link>
             <div className="header-right-side">
                 <Search />
-                <div>
-                    <Link to="/cart">
-                        <img className="cart-img" src='/assets/cart.svg' alt="cart" />
-                    </Link>
-                    <div className="cart-counter-container">
-                        <CartItemsCounter /> 
+                <div className="cart-menu-container">
+                    <div className="cart-container">
+                        <Link to="/cart">
+                            <img className="cart-img" src='/assets/cart.svg' alt="cart" />
+                        </Link>
+                        <div className="cart-counter-container">
+                            <CartItemsCounter /> 
+                        </div>
+                    </div>
+                    <div className="menu-container">
+                        <MenuContent />
                     </div>
                 </div>
-                <MenuContent />
             </div>
         </div>
     )

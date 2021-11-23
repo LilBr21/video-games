@@ -30,3 +30,68 @@
 .search-btn:hover {
     background-color: $hoverBtnColor;
 }
+
+@media (max-width: 1120px) {
+    .input {
+        width: 250px;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 1050px) {
+    .input-container {
+        width: auto;
+        margin-bottom: 0.5rem;
+    }
+
+    .search-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .search-btn {
+        margin-top: 1rem;
+    }
+
+    .search-img {
+        margin: 0 12rem 3.5rem 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .input {
+        width: 200px;
+        height: 45px;
+    }
+
+    .search-img {
+        margin: 0 10rem 3.5rem 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .input-container {
+        margin-right: 0.5rem;
+    }
+
+    .search-form {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .input {
+        width: 100px;
+        height: 35px;
+    }
+
+    .search-btn {
+        @include main-button(30px, 60px, 18px);
+        margin-bottom: 0.75rem;
+    }
+
+    .search-img {
+        margin: 0 8rem 0.25rem 0;
+    }
+}

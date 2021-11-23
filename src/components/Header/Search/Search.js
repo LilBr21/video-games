@@ -26,7 +26,7 @@ const Search = () => {
     return (
         <div>
         <div className="input-container">
-            <form onSubmit={onSubmit}>
+            <form className="search-form" onSubmit={onSubmit}>
                 <img className="search-img" src="/assets/search.svg" alt="search" />
                 <input type="text" onChange={handleChange} value={searchTerm} className="input"></input>
                 <Link to='/allgames'>

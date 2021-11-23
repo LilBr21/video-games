@@ -46,3 +46,80 @@
 .seeallbtn:hover {
     background-color: $hoverBtnColor;
 }
+
+@media (max-width: 1165px) {
+    .home-list {
+        width: 450px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 1070px) {
+    .homepage-content {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .pad-img {
+        grid-column: 1;
+        width: 400px;
+        height: 280px;
+    }
+
+    .rightside {
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+    }
+
+    .leftside {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 500px;
+    }
+}
+
+@media (max-width: 860px) {
+    .home-list {
+        width: 400px;
+    }
+}
+
+@media (max-width: 840px) {
+    .home-list {
+        width: 300px;
+    }
+}
+
+@media (max-width: 740px) {
+    .leftside {
+        display: none;
+    }
+
+    .homepage-content {
+        grid-template-columns: 1fr;
+    }
+
+    .rightside {
+        grid-column: 1;
+    }
+
+    .home-list {
+        width: 80%;
+        padding-bottom: 2rem;
+    }
+
+    .seeallbtn {
+        @include main-button(50px, 190px, 40px)
+    }
+}
+
+@media (min-height: 900px) {
+    .leftside, .rightside {
+        height: 800px;
+    }
+}
