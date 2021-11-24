@@ -7,7 +7,7 @@ import'./maingamespage.styles.scss';
 
 const MainGamesPage = (props) => {
     return (
-        <div>
+        <div className="main-games-page">
             <Header />
             <div className="game-part-container">
                 <div>

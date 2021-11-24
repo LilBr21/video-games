@@ -1,5 +1,10 @@
 @import'../../../variables/variables.scss';
 
+.main-games-page {
+    position: relative;
+    overflow-x: hidden;
+}
+
 .game-part-container, .games-title {
     font-family: $mainTextFont;
 }
@@ -13,7 +18,12 @@
 }
 
 .all-games-container {
-    @include games-container;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
+    justify-items: center;
 }
 
 .games-title {
@@ -23,4 +33,10 @@
 .loading {
     color: $MainLightColor;
     font-size: 30px;
+}
+
+@media (max-width: 500px) {
+    .all-games-container {
+        grid-template-columns: 1fr;
+    }
 }

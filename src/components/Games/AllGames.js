@@ -1,6 +1,8 @@
 import useGames from './useAllGames';
 import MainGamesPage from './MainGamesPage/MainGamesPage';
 
+import'./allgames.styles.scss'
+
 const Games = () => {
     const { 
         fetchedData,
@@ -9,11 +11,13 @@ const Games = () => {
 
 
     return (
-        <MainGamesPage 
-            gamesData={fetchedData} 
-            pageTitle={"All games:"} 
-            isLoading={isLoading}
-        />
+        <div className="allgames-container">
+            <MainGamesPage 
+                gamesData={fetchedData} 
+                pageTitle={"All games:"} 
+                isLoading={isLoading}
+            />
+        </div>
     )
 }
 

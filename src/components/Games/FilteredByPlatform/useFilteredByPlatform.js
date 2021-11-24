@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react'
 const useFilteredByPlatform = () => {
     const [fetchedPlatformGames, setFetchedPlatformGames] = useState([])
     const [isLoading, setIsLoading] = useState(false);
-    const filterPlatform = useSelector(state => state.games.platformFilter);
+    const filterPlatform = useSelector(state => state.filters.platformFilter);
     const currentPage = useSelector(state => state.games.currentPage);
     const API_KEY = process.env.REACT_APP_VIDEO_API_KEY;
+
+    console.log(filterPlatform);
 
     const queryPlatformBuilder = () => {
         let platformUrl = `https://api.rawg.io/api/games?key=${API_KEY}&platforms=${filterPlatform}`
@@ -23,7 +25,6 @@ const useFilteredByPlatform = () => {
             .then(({ results }) => {
             setFetchedPlatformGames(results);
             setIsLoading(false);
-            console.log(fetchedPlatformGames);
         }).catch((err)=>{
           alert("Something went wrong")
         });

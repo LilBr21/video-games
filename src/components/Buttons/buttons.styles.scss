@@ -8,3 +8,9 @@
 .next-btn:hover, .prev-btn:hover {
     background-color: $hoverBtnColor;
 }
+
+@media (max-width: 500px) {
+    .next-btn, .prev-btn {
+        @include main-button(30px, 90px, 20px);
+    }
+}
