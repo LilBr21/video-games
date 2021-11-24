@@ -9,7 +9,7 @@ const HamburgerMenu = ({menuIsShown}) => {
             </div>
             <div 
                 className="burger-line" 
-                style={{transform: menuIsShown ? 'translateX(200%)' : 'translateX(0)'}}>
+                style={{transform: menuIsShown ? 'translateX(300%)' : 'translateX(0)'}}>
             </div>
             <div 
                 className="burger-line" 

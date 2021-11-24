@@ -52,3 +52,54 @@
 .router-link, .console-link {
     @include link;
 }
+
+@media (max-width: 800px) {
+    .menu-content {
+        width: 50%;
+    }
+}
+
+@media (min-height: 1000px) {
+    .menu-content {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-content {
+        width: 100%;
+        margin-top: 1.25rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .menu-content {
+        width: 90%;
+        height: auto;
+        margin-top: 2rem;
+    }
+
+    .menu-title, .menu-title-consoles {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 350px) {
+    .menu-content {
+        width: 85%;
+    }
+
+    .console {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 300px) {
+    .menu-content {
+        width: 100%;
+    }
+
+    .console {
+        padding: 0.5rem;
+    }
+}

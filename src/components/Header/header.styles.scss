@@ -80,6 +80,21 @@
         display: flex;
         flex-direction: column;
     }
+
+    .menu-container {
+        margin-left: 0rem;
+        margin-right: 0;
+    }
+
+    .cart-img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .cart-container {
+        margin-left: 5rem;
+        margin-top: 0.25rem;
+    }
 }
 
 @media (max-width: 350px) {
