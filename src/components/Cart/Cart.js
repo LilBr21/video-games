@@ -26,9 +26,9 @@ const Cart = () => {
     return (
         <div className="cart-page">
             <Header />
-            <div> 
+            <div className="cart-main-container"> 
                 {!formIsShown &&
-                <div className="cart-container">
+                <div className="cart-games-container">
                     <h3 className="cart-title">Cart items:</h3>
                     <div className="bought-games-container">
                         {cartPairs.map(pair => (

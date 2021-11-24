@@ -59,7 +59,7 @@
 
 .submit-btn {
     @include main-button(40px, 100px, 20px);
-    margin-top: 1rem;
+    margin: 1rem 0;
 }
 
 .submit-btn:hover {
@@ -77,4 +77,34 @@
     color: $redColor;
     font-family: $mainTextFont;
     font-size: 30px;
+}
+
+@media (max-width: 450px) {
+    .form-label, .form-input {
+        margin-top: 0.9rem;
+        width: 150px;
+    }
+
+    .large-form-input, .large-form-label {
+        width: 320px;
+    }
+    
+    .small-form-input, .small-form-label {
+        width: 60px;
+    }
+}
+
+@media (max-width: 350px) {
+    .form-label, .form-input {
+        margin-top: 0.9rem;
+        width: 140px;
+    }
+
+    .large-form-input, .large-form-label {
+        width: 300px;
+    }
+    
+    .small-form-input, .small-form-label {
+        width: 60px;
+    }
 }
