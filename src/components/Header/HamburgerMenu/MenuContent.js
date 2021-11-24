@@ -14,8 +14,7 @@ const MenuContent = () => {
     const dispatch = useDispatch();
 
     const resetSearchHandler = () => {
-        dispatch(gamesActions.resetSearch())
-        console.log('123')
+        dispatch(gamesActions.resetSearch());
     }
 
     const openMenuHandler = () => {

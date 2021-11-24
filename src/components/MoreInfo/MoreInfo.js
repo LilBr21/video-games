@@ -30,7 +30,7 @@ const MoreInfo = () => {
     }
     
     return (
-        <div>
+        <div className="more-info-container">
             <div>
                 <Header />
             </div>
@@ -44,11 +44,13 @@ const MoreInfo = () => {
                         <button className="add-btn">Add to cart</button>
                     </div>
                 </div>
-                <img 
-                    className="game-pic" 
-                    src={background_image} 
-                    alt="main game" 
-                />
+                <div className="main-img-container">
+                    <img 
+                        className="game-pic" 
+                        src={background_image} 
+                        alt="main game" 
+                    />
+                </div>
                 <p className="game-description">{description_raw}</p>
                 <p className="game-description">Date of release: 
                     <span className="game-data">{released}</span>
@@ -60,7 +62,7 @@ const MoreInfo = () => {
                 {platforms && platforms.map(platform => (
                     <p key={Math.floor(Math.random() * 100)} className="game-platform">{platform.platform.name}</p>
                 ))}
-                <div>
+                <div className="screenshots-container">
                     {fetchedScreenshots && fetchedScreenshots.map(image => (
                         <img className="game-screenshots" key={Math.floor(Math.random() * Date.now())} src={image.image} alt="gameplay screenshot"></img>
                     ))}

@@ -1,10 +1,16 @@
 @import'../../variables/variables.scss';
 
+.more-info-container {
+    position: relative;
+    overflow-x: hidden;
+}
+
 .extended-container {
     background-color: $LighterDarkColor;
     color: $MainLightColor;
     margin-top: 0;
     padding-bottom: 2rem;
+    width: 100%;
 }
 
 .top-container {
@@ -22,6 +28,7 @@
 
 .add-btn-container {
     width: 14%;
+    padding-right: 2.5rem;
 }
 
 .add-btn {
@@ -77,4 +84,62 @@
 
 .game-screenshots {
     margin: 1.5rem;
+}
+
+@media (max-width: 770px) {
+    .game-name, .game-price, .game-description {
+        font-size: 22px;
+    }
+
+    .screenshots-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .game-name-container {
+        width: 50%;
+    }
+
+    .game-name, .game-price {
+        font-size: 18px;
+    }
+
+    .game-price {
+        margin-bottom: 1.5rem;
+    }
+
+    .add-btn {
+        @include main-button(30px, 100px, 18px);
+        margin-top: 1.25rem;
+    }
+
+    .main-img-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game-pic, .game-screenshots {
+        height: 200px;
+        width: 270px;
+    }
+
+    .game-pic {
+        padding: 0;
+    }
+
+    .game-description, .game-platform {
+        font-size: 18px;
+        padding: 0 2.5rem 0 2.5rem;
+    }
+
+    .game-screenshots {
+        margin: 1.5rem 0;
+    }
+
 }
