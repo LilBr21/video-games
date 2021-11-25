@@ -26,10 +26,6 @@ const MenuContent = () => {
         dispatch(filtersActions.assignConsoleName(consoleName));
     }
 
-    const seeTopRankingHandler = () => {
-        dispatch(gamesActions.seeTopRanking);
-    }
-
     return (
         <div>
         <div onClick={openMenuHandler}>
@@ -69,7 +65,7 @@ const MenuContent = () => {
                     </div>
                 </ul>
                 <Link to="/ranking" className="router-link">
-                    <h3 onClick={seeTopRankingHandler} className="menu-title">Rankings</h3>
+                    <h3 className="menu-title">Rankings</h3>
                 </Link>
                 <Link to='/allgames' className="router-link">
                     <h3 onClick={resetSearchHandler} className="menu-title">See all</h3>

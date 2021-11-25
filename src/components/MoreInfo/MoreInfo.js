@@ -20,7 +20,7 @@ const MoreInfo = () => {
 
     const dispatch = useDispatch();
 
-    const newCartPair = {name: name, gamePrice: gamePrice};
+    const newCartPair = {name: name, gamePrice: gamePrice, platforms: platforms};
 
     const gameToCartHandler = () => {
         dispatch(cartActions.addGameToCart(name));

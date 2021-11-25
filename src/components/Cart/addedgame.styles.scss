@@ -7,13 +7,25 @@
 }
 
 .addedgame-name {
-    margin-right: 2rem;
+    margin-right: 1rem;
     font-weight: 500;
     font-size: 20px;
 }
 
 .addedgame-price {
     font-size: 20px;
+}
+
+.platform-option-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem;
+}
+
+.platform-select {
+    margin-top: 0.5rem;
 }
 
 .addedgame-btn-container {
