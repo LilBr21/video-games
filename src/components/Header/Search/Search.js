@@ -10,7 +10,6 @@ const Search = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    //debounce <- lodash
     const handleChange = (event) => {
         setSearchTerm(event.target.value);
         event.preventDefault();

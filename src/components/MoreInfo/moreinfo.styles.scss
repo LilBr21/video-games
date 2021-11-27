@@ -19,10 +19,7 @@
 }
 
 .game-name-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include center-all;
     width: 86%;
 }
 
@@ -92,10 +89,7 @@
     }
 
     .screenshots-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include center-all;
     }
 }
 
@@ -118,10 +112,7 @@
     }
 
     .main-img-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include center-all;
     }
 
     .game-pic, .game-screenshots {

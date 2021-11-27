@@ -14,24 +14,17 @@
     font-family: $mainTextFont;
 }
 
+.cart-games-container, .bought-games-container {
+    @include center-all;
+}
+
 .cart-games-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 0;
 }
 
 .cart-main-container {
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.bought-games-container {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

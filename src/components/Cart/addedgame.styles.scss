@@ -16,23 +16,16 @@
     font-size: 20px;
 }
 
+.platform-option-container, .addedgame-btn-container {
+    @include center-all;
+}
+
 .platform-option-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     padding: 0 1.5rem;
 }
 
 .platform-select {
     margin-top: 0.5rem;
-}
-
-.addedgame-btn-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .addedgame-close-btn {

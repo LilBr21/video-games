@@ -75,7 +75,6 @@ const Form = () => {
         },
         validate,
         onSubmit: () => {
-            //alert(JSON.stringify(values, null, 2));
             setIsOrdered(true);
             dispatch(cartActions.finishOrder())
         },

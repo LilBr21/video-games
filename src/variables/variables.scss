@@ -37,11 +37,9 @@ $hoverBtnColor: #812123;
     align-items: center;
 }
 
-// @mixin games-container {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
-//     column-gap: 150px;
-//     margin-left: 150px;
-//     margin-right: 150px;
-//     justify-items: center;
-// }
+@mixin center-all {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,8 +1,6 @@
 import useGames from './useAllGames';
 import MainGamesPage from './MainGamesPage/MainGamesPage';
 
-import'./allgames.styles.scss'
-
 const Games = () => {
     const { 
         fetchedData,
